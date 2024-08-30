@@ -12,6 +12,22 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
+class $AssetsGoogleFontsGen {
+  const $AssetsGoogleFontsGen();
+
+  /// File path: assets/google_fonts/Inter-Medium.ttf
+  String get interMedium => 'assets/google_fonts/Inter-Medium.ttf';
+
+  /// File path: assets/google_fonts/Inter-Regular.ttf
+  String get interRegular => 'assets/google_fonts/Inter-Regular.ttf';
+
+  /// File path: assets/google_fonts/Inter-SemiBold.ttf
+  String get interSemiBold => 'assets/google_fonts/Inter-SemiBold.ttf';
+
+  /// List of all assets
+  List<String> get values => [interMedium, interRegular, interSemiBold];
+}
+
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
@@ -21,15 +37,18 @@ class $AssetsImagesGen {
   /// Directory path: assets/images/3.0x
   $AssetsImages30xGen get a3 => const $AssetsImages30xGen();
 
-  /// File path: assets/images/sample.png
-  AssetGenImage get samplePng =>
-      const AssetGenImage('assets/images/sample.png');
+  /// Directory path: assets/images/icons
+  $AssetsImagesIconsGen get icons => const $AssetsImagesIconsGen();
 
   /// File path: assets/images/sample.svg
-  SvgGenImage get sampleSvg => const SvgGenImage('assets/images/sample.svg');
+  SvgGenImage get sample => const SvgGenImage('assets/images/sample.svg');
+
+  /// File path: assets/images/sample_vikrant.png
+  AssetGenImage get sampleVikrant =>
+      const AssetGenImage('assets/images/sample_vikrant.png');
 
   /// List of all assets
-  List<dynamic> get values => [samplePng, sampleSvg];
+  List<dynamic> get values => [sample, sampleVikrant];
 }
 
 class $AssetsLogoGen {
@@ -64,9 +83,21 @@ class $AssetsImages30xGen {
   List<AssetGenImage> get values => [flutterLogo];
 }
 
+class $AssetsImagesIconsGen {
+  const $AssetsImagesIconsGen();
+
+  /// File path: assets/images/icons/down_arrow.webp
+  AssetGenImage get downArrow =>
+      const AssetGenImage('assets/images/icons/down_arrow.webp');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [downArrow];
+}
+
 class Assets {
   Assets._();
 
+  static const $AssetsGoogleFontsGen googleFonts = $AssetsGoogleFontsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsLogoGen logo = $AssetsLogoGen();
 }

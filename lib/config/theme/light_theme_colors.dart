@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
 
 // TODO add your light theme colors palette
-class LightThemeColors
-{
+class LightThemeColors {
   // PRIMARY
-  static const Color primaryColor = Color(0xFF42A7DE);
+  static const Color primaryColor = Color(0xFF3F9FF8);
 
   // SECONDARY COLOR
   static const Color accentColor = Color(0xFFD9EDE1);
 
+  // Text Colors
+  static const Color primaryLightTextColor = Color(0xFF232323);
+  static const Color rhinoTextColor = Color(0xFF343C6A);
+  static const Color nobelTextColor = Color(0xFFB1B1B1);
+  static const Color blueTextColor = Color(0xFF3F9FF8);
+  static const Color wildBlueTextColor = Color(0xFF718EBF);
+
   //APPBAR
-  static const Color appBarColor = primaryColor;
+  static const Color appBarColor = Colors.white;
+  static const Color appBarTextColor = Color(0xFF343C6A);
 
   //SCAFFOLD
-  static const Color scaffoldBackgroundColor = Colors.white;
+  static const Color scaffoldBackgroundColor = Color(0xFFF5F7FA);
   static const Color backgroundColor = Colors.white;
   static const Color dividerColor = Color(0xff686868);
   static const Color cardColor = Color(0xfffafafa);
@@ -24,7 +31,7 @@ class LightThemeColors
 
   //BUTTON
   static const Color buttonColor = primaryColor;
-  static const Color buttonTextColor = Colors.white;
+  static const Color buttonTextColor = Colors.black;
   static const Color buttonDisabledColor = Colors.grey;
   static const Color buttonDisabledTextColor = Colors.black;
 
@@ -32,7 +39,7 @@ class LightThemeColors
   static const Color bodyTextColor = Colors.black;
   static const Color displayTextColor = Color(0xFF1E2432);
   static const Color bodySmallTextColor = Color(0xff7C7C7C);
-  static const Color hintTextColor =  Color(0xff686868);
+  static const Color hintTextColor = Color(0xff686868);
 
   //chip
   static const Color chipBackground = primaryColor;

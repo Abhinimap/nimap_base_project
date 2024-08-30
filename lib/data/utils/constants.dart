@@ -3,7 +3,7 @@ class Constants {
 
   static const String select = 'Select';
   static const String fontStyleABeeZee = 'ABeeZee';
-  static const String isSuccessful = 'isSuccessful';
+  static const String apiCallStatus = 'apiCallStatus';
 
   static const String noOfQuestions = 'No. Of Question';
   static const String playTime = 'Play Time';
@@ -23,5 +23,5 @@ class Constants {
   static const int tournamentPageIndex = 3;
   static const int profilePageIndex = 5;
 
-  static Map<String, dynamic> errorRequestBody = {isSuccessful: false};
+  static Map<String, dynamic> errorRequestBody = {apiCallStatus: false};
 }

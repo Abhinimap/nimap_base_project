@@ -14,8 +14,9 @@ class AuthMiddleware extends GetMiddleware {
     //         arguments: Get.arguments,
     //       );
 
+    // TODO: Change name as well
     return RouteSettings(
-      name: Routes.login,
+      name: "/",
       arguments: Get.arguments,
     );
   }

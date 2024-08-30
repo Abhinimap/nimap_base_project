@@ -18,8 +18,8 @@ class Utils {
   }
 
   static bool isApiSuccessful(Map<String, dynamic> responseData) {
-    return responseData.containsKey(Constants.isSuccessful) &&
-        responseData[Constants.isSuccessful];
+    return responseData.containsKey(Constants.apiCallStatus) &&
+        responseData[Constants.apiCallStatus];
   }
 
   static bool isAPISuccessfulViaStatusCode({required int statusCode}) {
@@ -29,7 +29,7 @@ class Utils {
 
   static bool isAPISuccsessful({required dynamic responseData}) {
     return responseData is Map &&
-        responseData.containsKey(Constants.isSuccessful) &&
-        responseData[Constants.isSuccessful];
+        responseData.containsKey(Constants.apiCallStatus) &&
+        responseData[Constants.apiCallStatus];
   }
 }

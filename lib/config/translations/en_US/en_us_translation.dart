@@ -1,5 +1,4 @@
-import '../strings_enum.dart';
-import '../translations/strings_enum.dart';
+import '../../../config/config.dart';
 
 const Map<String, String> enUs = {
   Strings.hello : 'Hello!',

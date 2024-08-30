@@ -12,13 +12,14 @@ import 'package:flutter/foundation.dart';
 
 import 'package:starter_template_get_x/data/data.dart';
 
-import '../../../gen/assets.gen.dart';
 import '../endpoints/endpoints.dart';
 
 class AuthenticationInterceptor extends Interceptor {
   @override
   void onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
+    // TODO: Add authentication header here
+
     // if (StorageUtil.getToken().isNotEmpty) {
     //   // NOTE: Setting authorization token here
     //   options.headers['Authorization'] = 'Bearer ${StorageUtil.getToken()}';
@@ -36,8 +37,8 @@ class AuthenticationInterceptor extends Interceptor {
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     Utils.isAPISuccessfulViaStatusCode(statusCode: response.statusCode!) &&
             response.data is Map
-        ? response.data[Constants.isSuccessful] = true
-        : response.data[Constants.isSuccessful] = false;
+        ? response.data[Constants.apiCallStatus] = true
+        : response.data[Constants.apiCallStatus] = false;
 
     super.onResponse(response, handler);
   }
@@ -50,7 +51,7 @@ class AuthenticationInterceptor extends Interceptor {
         // CustomSnackBar.error("You need to log out and login again.");
       }
       if (err.response?.data is Map) {
-        err.response?.data[Constants.isSuccessful] = false;
+        err.response?.data[Constants.apiCallStatus] = false;
       }
     } catch (e) {
       if (kDebugMode) {

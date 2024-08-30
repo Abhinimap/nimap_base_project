@@ -1,21 +1,9 @@
-/*
- *
- * Created by Vikrant Patil on 23/01/24, 12:00 pm
- * Copyright (c) 2024 . All rights reserved.
- * Last modified 23/01/24, 3.24 pm
- *
- *
- */
-
 import 'package:dio/dio.dart';
-import 'package:starter_template_get_x/data/data.dart';
-import 'package:starter_template_get_x/data/models/custom_response.dart';
-import '../../gen/assets.gen.dart';
-import 'endpoints/endpoints.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-import 'interceptors/authentication_interceptor.dart';
+import '../domain.dart';
+import 'package:starter_template_get_x/data/data.dart';
 
 class DioAPIClient {
   DioAPIClient._();

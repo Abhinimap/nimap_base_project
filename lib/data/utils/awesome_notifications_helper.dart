@@ -1,7 +1,7 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:starter_template_get_x/data/utils/routes.dart';
+
+
 
 class AwesomeNotificationsHelper {
   // prevent making instance

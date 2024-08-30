@@ -1,8 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:logger/logger.dart';
-import 'awesome_notifications_helper.dart';
-import 'my_shared_pref.dart';
+
+import '../data.dart';
 
 class FirebaseHelper {
   // prevent making instance

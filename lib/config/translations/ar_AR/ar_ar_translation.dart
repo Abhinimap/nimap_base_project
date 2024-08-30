@@ -1,4 +1,4 @@
-import '../strings_enum.dart';
+import '../../../config/config.dart';
 
 final Map<String, String> arAR =
 {

@@ -9,8 +9,16 @@ class DarkThemeColors
   // SECONDARY
   static Color accentColor = Colors.blueAccent;
 
+  // Text Colors
+  static const Color primaryDarkTextColor = Color(0xFF232323);
+  static const Color rhinoTextColor = Color(0xFF343C6A);
+  static const Color nobelTextColor = Color(0xFFB1B1B1);
+  static const Color blueTextColor = Color(0xFF3F9FF8);
+  static const Color wildBlueTextColor = Color(0xFF718EBF);
+
   //Appbar
   static const Color appbarColor = Colors.black;
+  static const Color appBarTextColor = Colors.white;
 
   //SCAFFOLD
   static const Color scaffoldBackgroundColor = Color(0xff2D2D2D);
