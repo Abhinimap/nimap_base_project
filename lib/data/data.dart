@@ -12,6 +12,7 @@ export 'utils/routes.dart';
 
 //models imports
 export 'models/custom_response.dart';
+export 'models/drawer_item.dart';
 
 //middleware imports
 export 'middlewares/auth_middleware.dart';

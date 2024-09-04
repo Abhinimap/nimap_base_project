@@ -4,3 +4,13 @@ enum ApiCallStatus {
   error,
   empty,
 }
+
+enum DrawerElements {
+  dashboard,
+  projects,
+  tasks,
+  forms,
+  notifications,
+  settings,
+  logout
+}

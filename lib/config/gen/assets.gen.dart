@@ -55,10 +55,15 @@ class $AssetsLogoGen {
   const $AssetsLogoGen();
 
   /// File path: assets/logo/app_icon.png
-  AssetGenImage get appIcon => const AssetGenImage('assets/logo/app_icon.png');
+  AssetGenImage get appIconPng =>
+      const AssetGenImage('assets/logo/app_icon.png');
+
+  /// File path: assets/logo/app_icon.webp
+  AssetGenImage get appIconWebp =>
+      const AssetGenImage('assets/logo/app_icon.webp');
 
   /// List of all assets
-  List<AssetGenImage> get values => [appIcon];
+  List<AssetGenImage> get values => [appIconPng, appIconWebp];
 }
 
 class $AssetsImages20xGen {
@@ -90,8 +95,12 @@ class $AssetsImagesIconsGen {
   AssetGenImage get downArrow =>
       const AssetGenImage('assets/images/icons/down_arrow.webp');
 
+  /// File path: assets/images/icons/home_icon.webp
+  AssetGenImage get homeIcon =>
+      const AssetGenImage('assets/images/icons/home_icon.webp');
+
   /// List of all assets
-  List<AssetGenImage> get values => [downArrow];
+  List<AssetGenImage> get values => [downArrow, homeIcon];
 }
 
 class Assets {

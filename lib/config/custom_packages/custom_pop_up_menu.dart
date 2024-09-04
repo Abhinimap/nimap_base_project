@@ -407,7 +407,7 @@ class _MenuLayoutDelegate extends MultiChildLayoutDelegate {
         _MenuLayoutId.downArrow,
         !isBottom
             ? Offset(arrowOffset.dx, arrowOffset.dy - 0.1)
-            : Offset(-100, 0),
+            : const Offset(-100, 0),
       );
     }
   }
