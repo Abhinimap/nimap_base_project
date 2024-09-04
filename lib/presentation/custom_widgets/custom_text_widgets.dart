@@ -11,12 +11,14 @@ class CustomText extends StatelessWidget {
     this.fontWeight = FontWeight.w500,
     this.overflow,
     this.maxLines,
+    this.textAlign
   });
 
   final String text;
   final double fontSize;
   final FontWeight fontWeight;
   final TextOverflow? overflow;
+  final TextAlign? textAlign;
   final int? maxLines;
 
   @override
@@ -27,8 +29,10 @@ class CustomText extends StatelessWidget {
             fontSize: fontSize,
             fontWeight: fontWeight,
             overflow: overflow,
+
           ),
       maxLines: maxLines,
+      textAlign: textAlign,
     );
   }
 }
@@ -40,12 +44,15 @@ class CustomNobelText extends StatelessWidget {
     this.fontSize = MyFonts.defaultFontSize,
     this.fontWeight = FontWeight.w500,
     this.overflow,
+    this.textAlign
   });
 
   final String text;
   final double fontSize;
   final FontWeight fontWeight;
   final TextOverflow? overflow;
+  final TextAlign? textAlign;
+
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +68,8 @@ class CustomNobelText extends StatelessWidget {
             fontWeight: fontWeight,
             overflow: overflow,
           ),
+      textAlign: textAlign,
+
     );
   }
 }
@@ -72,12 +81,15 @@ class CustomRhinoText extends StatelessWidget {
     this.fontSize = MyFonts.defaultFontSize,
     this.fontWeight = FontWeight.w500,
     this.overflow,
+    this.textAlign
   });
 
   final String text;
   final double fontSize;
   final FontWeight fontWeight;
   final TextOverflow? overflow;
+  final TextAlign? textAlign;
+
 
   @override
   Widget build(BuildContext context) {
@@ -93,6 +105,8 @@ class CustomRhinoText extends StatelessWidget {
             fontWeight: fontWeight,
             overflow: overflow,
           ),
+      textAlign: textAlign,
+
     );
   }
 }
@@ -104,12 +118,15 @@ class CustomBlueText extends StatelessWidget {
     this.fontSize = MyFonts.defaultFontSize,
     this.fontWeight = FontWeight.w500,
     this.overflow,
+    this.textAlign
   });
 
   final String text;
   final double fontSize;
   final FontWeight fontWeight;
   final TextOverflow? overflow;
+  final TextAlign? textAlign;
+
 
   @override
   Widget build(BuildContext context) {
@@ -125,6 +142,8 @@ class CustomBlueText extends StatelessWidget {
             fontWeight: fontWeight,
             overflow: overflow,
           ),
+      textAlign: textAlign,
+
     );
   }
 }
@@ -136,12 +155,15 @@ class CustomWildBlueText extends StatelessWidget {
     this.fontSize = MyFonts.defaultFontSize,
     this.fontWeight = FontWeight.w500,
     this.overflow,
+    this.textAlign
   });
 
   final String text;
   final double fontSize;
   final FontWeight fontWeight;
   final TextOverflow? overflow;
+  final TextAlign? textAlign;
+
 
   @override
   Widget build(BuildContext context) {
@@ -158,6 +180,7 @@ class CustomWildBlueText extends StatelessWidget {
             overflow: overflow,
           ),
       overflow: TextOverflow.ellipsis,
+      textAlign: textAlign,
     );
   }
 }
@@ -169,12 +192,14 @@ class CustomWhiteText extends StatelessWidget {
     this.fontSize = MyFonts.defaultFontSize,
     this.fontWeight = FontWeight.w300,
     this.overflow,
+    this.textAlign
   });
 
   final String text;
   final double fontSize;
   final FontWeight fontWeight;
   final TextOverflow? overflow;
+  final TextAlign? textAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -186,6 +211,8 @@ class CustomWhiteText extends StatelessWidget {
             fontWeight: fontWeight,
             overflow: overflow,
           ),
+      textAlign: textAlign,
+
     );
   }
 }

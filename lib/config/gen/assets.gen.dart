@@ -66,6 +66,16 @@ class $AssetsLogoGen {
   List<AssetGenImage> get values => [appIconPng, appIconWebp];
 }
 
+class $AssetsSvgGen {
+  const $AssetsSvgGen();
+
+  /// File path: assets/svg/file_icon.svg
+  SvgGenImage get fileIcon => const SvgGenImage('assets/svg/file_icon.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [fileIcon];
+}
+
 class $AssetsImages20xGen {
   const $AssetsImages20xGen();
 
@@ -109,6 +119,7 @@ class Assets {
   static const $AssetsGoogleFontsGen googleFonts = $AssetsGoogleFontsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsLogoGen logo = $AssetsLogoGen();
+  static const $AssetsSvgGen svg = $AssetsSvgGen();
 }
 
 class AssetGenImage {

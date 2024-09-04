@@ -8,6 +8,7 @@ import 'package:starter_template_get_x/presentation/presentation.dart';
 class PrimaryButton extends StatefulWidget {
   const PrimaryButton({
     super.key,
+    this.width,
     this.onPressed,
     this.height = 58,
     this.fontSize = 16,
@@ -19,6 +20,7 @@ class PrimaryButton extends StatefulWidget {
 
   final Widget? prefixIcon;
   final double height;
+  final double? width;
   final double fontSize;
   final double borderRadius;
   final String buttonText;
@@ -43,6 +45,7 @@ class _PrimaryButton extends State<PrimaryButton> {
       message: widget.buttonText,
       child: Container(
         height: widget.height,
+        width: widget.width,
         decoration: BoxDecoration(
           color: LightThemeColors.primaryColor,
           borderRadius: BorderRadius.circular(
@@ -90,6 +93,7 @@ class _PrimaryButton extends State<PrimaryButton> {
 class SecondaryButton extends StatelessWidget {
   const SecondaryButton({
     super.key,
+    this.width,
     this.onPressed,
     this.prefixIcon,
     this.height = 58,
@@ -101,6 +105,7 @@ class SecondaryButton extends StatelessWidget {
 
   final Widget? prefixIcon;
   final double height;
+  final double? width;
   final double fontSize;
   final double borderRadius;
   final String buttonText;
@@ -113,8 +118,9 @@ class SecondaryButton extends StatelessWidget {
       message: buttonText,
       child: Container(
         height: height,
+        width: width,
         decoration: BoxDecoration(
-          border: Border.all(color: LightThemeColors.blueTextColor, width: 3),
+          border: Border.all(color: LightThemeColors.blueTextColor, width: 1),
           color: Colors.white,
           borderRadius: BorderRadius.circular(
             borderRadius,
