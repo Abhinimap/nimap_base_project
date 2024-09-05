@@ -8,10 +8,10 @@ import 'package:starter_template_get_x/presentation/custom_widgets/custom_text_w
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
     super.key,
-    required this.selectDrawerElement,
+    this.selectDrawerElement,
   });
 
-  final DrawerElements selectDrawerElement;
+  final DrawerElements? selectDrawerElement;
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +67,8 @@ class CustomDrawer extends StatelessWidget {
     ];
 
     for (DrawerItem item in drawerList) {
-      if (item.identifier == selectDrawerElement) {
+      if (selectDrawerElement != null &&
+          item.identifier == selectDrawerElement) {
         item.selected = true;
       }
     }

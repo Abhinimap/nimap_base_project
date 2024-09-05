@@ -1,23 +1,31 @@
 import 'package:get/get.dart';
 
-import '../data.dart';
 import 'package:starter_template_get_x/main.dart';
+import 'package:starter_template_get_x/config/config.dart';
+import 'package:starter_template_get_x/data/data.dart';
+import 'package:starter_template_get_x/data/utils/custom_popup.dart';
+import 'package:starter_template_get_x/presentation/presentation.dart';
 
 class Routes {
   Routes._();
 
   static const String initialRoute = '/';
+  static const String examplePayment = '/example-payment';
 
-  static const String minAppVersion = '1.0.5';
+  static const String minAppVersion = '1.0.0';
   static List<GetMiddleware> defaultMiddleware = [AuthMiddleware()];
 
   static List<GetPage<dynamic>> routes = [
+
     GetPage(
       name: initialRoute,
-      page: () => const MyHomePage(
-        title: 'My Dashboard',
-      ),
+      page: () => const CustomExamplesPage(),
     ),
+    GetPage(
+      name: examplePayment,
+      page: () => const PaymentExamples(),
+    ),
+
     // TODO: Implement force upgrade
     // GetPage(
     //   name: login,
