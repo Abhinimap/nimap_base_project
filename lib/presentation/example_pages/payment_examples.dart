@@ -1,31 +1,21 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:starter_template_get_x/domain/domain.dart';
 import 'package:uuid/uuid.dart';
 
-import 'package:flutter_cashfree_pg_sdk/api/cfcard/cfcardlistener.dart';
-import 'package:flutter_cashfree_pg_sdk/api/cfcard/cfcardwidget.dart';
 import 'package:flutter_cashfree_pg_sdk/api/cferrorresponse/cferrorresponse.dart';
-import 'package:flutter_cashfree_pg_sdk/api/cfpayment/cfcard.dart';
-import 'package:flutter_cashfree_pg_sdk/api/cfpayment/cfcardpayment.dart';
-import 'package:flutter_cashfree_pg_sdk/api/cfpayment/cfdropcheckoutpayment.dart';
-import 'package:flutter_cashfree_pg_sdk/api/cfpayment/cfnetbanking.dart';
-import 'package:flutter_cashfree_pg_sdk/api/cfpayment/cfnetbankingpayment.dart';
-import 'package:flutter_cashfree_pg_sdk/api/cfpayment/cfupi.dart';
-import 'package:flutter_cashfree_pg_sdk/api/cfpayment/cfupipayment.dart';
 import 'package:flutter_cashfree_pg_sdk/api/cfpayment/cfwebcheckoutpayment.dart';
-import 'package:flutter_cashfree_pg_sdk/api/cfpaymentcomponents/cfpaymentcomponent.dart';
 import 'package:flutter_cashfree_pg_sdk/api/cfpaymentgateway/cfpaymentgatewayservice.dart';
 import 'package:flutter_cashfree_pg_sdk/api/cfsession/cfsession.dart';
-import 'package:flutter_cashfree_pg_sdk/api/cftheme/cftheme.dart';
 import 'package:flutter_cashfree_pg_sdk/utils/cfenums.dart';
 import 'package:flutter_cashfree_pg_sdk/utils/cfexceptions.dart';
-import 'package:flutter_cashfree_pg_sdk/api/cfupi/cfupiutils.dart';
 
-import 'package:starter_template_get_x/config/config.dart';
 import 'package:starter_template_get_x/data/data.dart';
-import 'package:starter_template_get_x/data/utils/custom_popup.dart';
+import 'package:starter_template_get_x/config/config.dart';
+import 'package:starter_template_get_x/domain/domain.dart';
 import 'package:starter_template_get_x/presentation/presentation.dart';
+
+// TODO: NOTE: Following setups are all testing setup and also you need to pass
+// TODO: this secrets from backends don't pass this from frontend.
 
 class PaymentExamples extends StatefulWidget {
   const PaymentExamples({super.key});
@@ -42,11 +32,6 @@ class PaymentExamplesState extends State<PaymentExamples> {
 
   final uuid = const Uuid();
 
-  String orderId = "order_6032i376cpyIuTTVae9vnqfmtgT8Hj";
-  String paymentSessionId =
-      "session_nfU1ZczDG136bf7N7EQv6C6kL0dZn3Xw8EYtHmpmt0_dqt493wRnYG7PuUEuv96G57DuMOobE39WVnUth3tgd5k_odWFHa8dHIWoFzs3RzHS";
-
-  CFEnvironment environment = CFEnvironment.SANDBOX;
   String selectedId = "";
 
   @override
@@ -78,9 +63,13 @@ class PaymentExamplesState extends State<PaymentExamples> {
 
   initiatePayment() async {
     // TODO: Following are the test credentials please use your test credentials
-    const String appId = "TEST10305710b52a49a6d8b83818378201750301";
+    // const String appId = "TEST10305710b52a49a6d8b83818378201750301";
+    // const String secretKey =
+    //     "cfsk_ma_test_65c1b4e827bb98b7b5d6c4418e8bc72a_0824f09b";
+
+    const String appId = "TEST10289959dce248afa08a071c403695998201";
     const String secretKey =
-        "cfsk_ma_test_65c1b4e827bb98b7b5d6c4418e8bc72a_0824f09b";
+        "cfsk_ma_test_9890332490e2ccacb39a3d3fd5aad79a_583d0d11";
 
     final String orderamount = (299 + 29.00).toStringAsFixed(2).toString();
 
@@ -124,6 +113,7 @@ class PaymentExamplesState extends State<PaymentExamples> {
   Future<CFSession?> createSession() async {
     try {
       final mySessionIDData = await initiatePayment();
+      print(mySessionIDData);
 
       var session = CFSessionBuilder()
           .setEnvironment(CFEnvironment.SANDBOX)
@@ -170,7 +160,6 @@ class PaymentExamplesState extends State<PaymentExamples> {
               onPressed: startPayment,
               buttonText: "Stripe Setup",
             ),
-
           ],
         ),
       ),

@@ -38,6 +38,8 @@ dependencies:
   #  flutter_stripe: ^11.0.0 # Stripe Payment Gateway
   flutter_cashfree_pg_sdk: ^2.1.3+33 # Cash free payment integration package
 
+  sqflite: # Local database
+
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
@@ -60,9 +62,8 @@ flutter:
 
   assets:
     - assets/images/
-    - assets/images/2.0x/
-    - assets/images/3.0x/
     - assets/images/icons/
+    - assets/images/images/
     - assets/logo/
     - assets/svg/
     - assets/google_fonts/
