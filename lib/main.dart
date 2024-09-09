@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sqflite/sqflite.dart';
 
 import 'package:starter_template_get_x/config/config.dart';
 import 'package:starter_template_get_x/data/data.dart';
@@ -14,6 +15,8 @@ void main() async {
 
   // NOTE: When you will use firebase use this to init firebase
   await FirebaseHelper.initFirebase();
+
+  await DatabaseService().database;
 
   // NOTE: When you want to awesome notifications uncomment this
   // await AwesomeNotificationsHelper.init();

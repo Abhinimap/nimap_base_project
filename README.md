@@ -1,10 +1,6 @@
-# Zenput
+# Write your project name here
 
-**Zenput** is a project focused on creating a dynamic form-based
-system for server usage and data analysis. It allows users to generate
-custom forms, collect data efficiently, and analyze reports to gain
-actionable insights. This tool is ideal for streamlining data
-collection and improving decision-making through detailed analysis.
+**ProjectName** description
 
 This project serves as a basic Flutter template utilizing GetX for state management.
 
