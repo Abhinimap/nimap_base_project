@@ -8,9 +8,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await DatabaseService().database;
   await MySharedPref.init();
-  await DatabaseService.getDataFromDB();
-  await DatabaseService.storeData('7');
-  await DatabaseService.getDataFromDB();
   // NOTE: When you will use firebase use this to init firebase
   await FirebaseHelper.initFirebase();
   // NOTE: When you want to awesome notifications uncomment this

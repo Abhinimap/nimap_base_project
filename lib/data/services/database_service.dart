@@ -20,11 +20,7 @@ class DatabaseService {
     'CREATE TABLE dogs(id INTEGER PRIMARY KEY, name TEXT, age INTEGER, color INTEGER, breedId INTEGER, FOREIGN KEY (breedId) REFERENCES breeds(id) ON DELETE SET NULL)',
   ];
 
-  final List<String> _migrationScripts = [
-    'ALTER TABLE dogs ADD COLUMN createdDate INTEGER',
-    'ALTER TABLE dogs ADD COLUMN updateDate INTEGER',
-    'ALTER TABLE breeds ADD COLUMN updateDate INTEGER',
-  ];
+  final List<String> _migrationScripts = [];
 
   Future<Database> get database async {
     if (_database != null) return _database!;
@@ -44,7 +40,6 @@ class DatabaseService {
     _databasePath = path;
     // Set the version. This executes the onCreate function and provides a
     // path to perform database upgrades and downgrades.
-    debugPrint("version no  : ${_migrationScripts.length + 1}");
     return await openDatabase(
       path,
       version: _migrationScripts.length + 1,
@@ -58,7 +53,6 @@ class DatabaseService {
   // and a table to store dogs.
   Future<void> _onCreate(Database db, int version) async {
     for (String script in _onCreateScript) {
-      debugPrint('creating database $_databaseName');
       await db.execute(script);
     }
   }
@@ -68,41 +62,6 @@ class DatabaseService {
 
     for (var i = oldVersion - 1; i < newVersion - 1; i++) {
       await db.execute(_migrationScripts[i]);
-    }
-  }
-
-  static Future<void> deleteDB() async {
-    debugPrint('delete database $_databasePath');
-
-    _databasePath.trim().isNotEmpty
-        ? await deleteDatabase(_databasePath)
-        : null;
-  }
-
-  static getDataFromDB() async {
-    debugPrint('retrieve database data');
-
-    if (_database != null && (_database?.isOpen ?? false)) {
-      final db = await openDatabase(_databasePath);
-      debugPrint((await db.query('breeds')).toString());
-      debugPrint((await db.rawQuery('PRAGMA table_info(breeds)'))
-          .map((column) => column['name'] as String)
-          .toList()
-          .toString());
-    }
-  }
-
-  static storeData(String id) async {
-    debugPrint('store database data');
-
-    if (_database != null && (_database?.isOpen ?? false)) {
-      final db = await openDatabase(_databasePath);
-      debugPrint((await db.insert('breeds', {
-        'id': id,
-        'description': 'a sample data',
-        'name': 'sample breed'
-      }))
-          .toString());
     }
   }
 }
