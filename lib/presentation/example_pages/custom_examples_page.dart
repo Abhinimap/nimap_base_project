@@ -1,9 +1,7 @@
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
 import 'package:starter_template_get_x/config/config.dart';
 import 'package:starter_template_get_x/data/data.dart';
-import 'package:starter_template_get_x/data/utils/custom_popup.dart';
 import 'package:starter_template_get_x/presentation/presentation.dart';
 
 class CustomExamplesPage extends StatefulWidget {
@@ -18,6 +16,7 @@ class CustomExamplesPage extends StatefulWidget {
 class _CustomExamplesPageState extends State<CustomExamplesPage> {
   @override
   Widget build(BuildContext context) {
+    debugPrint("inside custom exp page");
     return CustomScaffold(
       selectedDrawerElement: DrawerElements.projects,
       appBar: AppBar(
@@ -68,7 +67,6 @@ class _CustomExamplesPageState extends State<CustomExamplesPage> {
                       onSuccess: () {
                         Get.back();
                       },
-
                       onCancel: () {
                         Get.back();
                       },

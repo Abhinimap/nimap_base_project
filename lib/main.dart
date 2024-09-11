@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sqflite/sqflite.dart';
-
 import 'package:starter_template_get_x/config/config.dart';
 import 'package:starter_template_get_x/data/data.dart';
-import 'package:starter_template_get_x/data/utils/custom_popup.dart';
-import 'package:starter_template_get_x/presentation/presentation.dart';
 
 void main() async {
   // Wait for bindings
   WidgetsFlutterBinding.ensureInitialized();
-
+  await DatabaseService().database;
   await MySharedPref.init();
-
+  await DatabaseService.getDataFromDB();
+  await DatabaseService.storeData('7');
+  await DatabaseService.getDataFromDB();
   // NOTE: When you will use firebase use this to init firebase
   await FirebaseHelper.initFirebase();
-
   // NOTE: When you want to awesome notifications uncomment this
   // await AwesomeNotificationsHelper.init();
 
