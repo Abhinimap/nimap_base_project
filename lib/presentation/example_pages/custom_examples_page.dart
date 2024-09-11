@@ -68,6 +68,7 @@ class _CustomExamplesPageState extends State<CustomExamplesPage> {
                       onSuccess: () {
                         Get.back();
                       },
+
                       onCancel: () {
                         Get.back();
                       },

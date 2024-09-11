@@ -16,8 +16,6 @@ void main() async {
   // NOTE: When you will use firebase use this to init firebase
   await FirebaseHelper.initFirebase();
 
-  await DatabaseService().database;
-
   // NOTE: When you want to awesome notifications uncomment this
   // await AwesomeNotificationsHelper.init();
 
