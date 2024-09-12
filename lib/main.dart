@@ -1,11 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 import 'package:starter_template_get_x/config/config.dart';
 import 'package:starter_template_get_x/data/data.dart';
 
+import 'config/app_config.dart';
+
 void main() async {
   // Wait for bindings
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
+
+  Stripe.publishableKey = dotenv.env['STRIPE_PUBKEY'] ?? '';
+  Stripe.instance.applySettings();
+
+  AppConfig.create(
+    appName: 'started Prod',
+    baseUrl: 'prod url',
+    flavor: Flavor.prod,
+  );
   await DatabaseService().database;
   await MySharedPref.init();
   // NOTE: When you will use firebase use this to init firebase
@@ -22,7 +36,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Starter Project',
+      title: AppConfig.shared.appName,
       debugShowCheckedModeBanner: false,
       routingCallback: (value) {
         // NOTE: Used when we implement deep linking

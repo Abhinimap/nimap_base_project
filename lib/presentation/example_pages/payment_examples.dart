@@ -1,18 +1,15 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:uuid/uuid.dart';
-
 import 'package:flutter_cashfree_pg_sdk/api/cferrorresponse/cferrorresponse.dart';
 import 'package:flutter_cashfree_pg_sdk/api/cfpayment/cfwebcheckoutpayment.dart';
 import 'package:flutter_cashfree_pg_sdk/api/cfpaymentgateway/cfpaymentgatewayservice.dart';
 import 'package:flutter_cashfree_pg_sdk/api/cfsession/cfsession.dart';
 import 'package:flutter_cashfree_pg_sdk/utils/cfenums.dart';
 import 'package:flutter_cashfree_pg_sdk/utils/cfexceptions.dart';
-
 import 'package:starter_template_get_x/data/data.dart';
-import 'package:starter_template_get_x/config/config.dart';
-import 'package:starter_template_get_x/domain/domain.dart';
+import 'package:starter_template_get_x/presentation/example_pages/stripe_payment.dart';
 import 'package:starter_template_get_x/presentation/presentation.dart';
+import 'package:uuid/uuid.dart';
 
 // TODO: NOTE: Following setups are all testing setup and also you need to pass
 // TODO: this secrets from backends don't pass this from frontend.
@@ -138,6 +135,18 @@ class PaymentExamplesState extends State<PaymentExamples> {
     }
   }
 
+  startStripePayment() async {
+    //TODO :change to stripe
+    try {
+      var session = await createSession();
+      var cfWebCheckout =
+          CFWebCheckoutPaymentBuilder().setSession(session!).build();
+      cfPaymentGatewayService.doPayment(cfWebCheckout);
+    } on CFException catch (e) {
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
@@ -157,7 +166,10 @@ class PaymentExamplesState extends State<PaymentExamples> {
               height: 20,
             ),
             PrimaryButton(
-              onPressed: startPayment,
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => StripePayScreen()));
+              },
               buttonText: "Stripe Setup",
             ),
           ],

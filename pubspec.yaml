@@ -28,7 +28,6 @@ dependencies:
   firebase_messaging: ^15.0.0 # fcm services
   awesome_notifications: ^0.9.3+1 # notifications services (will be used for fcm)
 
-  flutter_launcher_icons: # change app icon
   change_app_package_name: # change package name
   rename_app: 1.4.0 # rename app
 
@@ -41,6 +40,9 @@ dependencies:
   sqflite: # Local database
 
   cupertino_icons: ^1.0.2
+  dev: ^1.0.0
+  flutter_stripe: ^11.0.0
+  flutter_dotenv: ^5.1.0
 
 dev_dependencies:
   flutter_test:
@@ -50,11 +52,23 @@ dev_dependencies:
   build_runner: ^2.4.8
   json_serializable: ^6.7.1 # package used to generate toJson and fromJson
   flutter_gen_runner:
+  flutter_launcher_icons: ^0.13.1 # change app icon
+
 
 flutter_launcher_icons:
   android: true
   ios: true
   image_path: "assets/logo/app_icon.png"
+  flavors:
+    dev:
+      image_path: "assets/app_icons/dev_image.jpg"
+      android: "app_dev"
+      ios: "RunnerDev"
+    prod:
+      image_path: "assets/app_icons/prod_image.jpg"
+      android: "app_staging"
+      ios: "RunnerProd"
+
 
 flutter:
   uses-material-design: true
@@ -66,6 +80,7 @@ flutter:
     - assets/logo/
     - assets/svg/
     - assets/google_fonts/
+    - .env
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a

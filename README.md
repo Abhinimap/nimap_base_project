@@ -272,3 +272,95 @@ Please follow following format:-
 |:--:|:--:|:--:|
 |`get`| We are using `getx` for `state`, `route`, `theme` & `localization` management.| [View](https://pub.dev/packages/get)|
 
+
+
+## Payment Gateway
+
+what are the main steps/Event happens in a Payment Gateway? 
+Mostly Every Payment Gateway uses this steps before redirecting user to payment page 
+
+1. initiate payment <!-- Collects user inputs, such as Amount, currency, name,email,Number etc.. -->
+2. create order  <!-- Collected data now sent to Payment Gateway server, which creats an Order and generates an unique Order ID -->
+3. create session for that Order  
+4. Give Session Web Url, where user will interact and make Payments
+
+when user Clicks on PAY button, he/she won't able to see first 3 process and after waiting for few secs
+User directly redirected to the web session.
+If you want to send session link to user email, then hold on after creating session and send to your server for sending a mail with Payment session link.
+
+In this example we have integrated Two Payment Gateway for your reference
+
+We have added direct link to Official Docs, please checkout for detailed Explanation
+1. [CashFree](https://docs.cashfree.com/docs/flutter-integration)
+2. [Stripe](https://pub.dev/packages/flutter_stripe)
+
+firstly, Lets start with CashFree integration in Flutter
+### Cashfree
+Requirements :-
+cashfree package 
+    flutter_cashfree_pg_sdk: ^2.1.3+33
+
+we will be using sandbox for creating order in Test Mode
+[create cashfree Order](https://sandbox.cashfree.com/pg/orders)
+
+### Stripe
+Android
+This plugin requires several changes to be able to work on Android devices. Please make sure you follow all these steps:
+
+1. Use Android 5.0 (API level 21) and above
+2. Use Kotlin version 1.5.0 and above: example
+3. Requires Android Gradle plugin 8 and higher
+4. Using a descendant of Theme.AppCompat for your activity: example, example night theme
+5. Using an up-to-date Android gradle build tools version: example and an up-to-date gradle version accordingly: example
+6. Using FlutterFragmentActivity instead of FlutterActivity in MainActivity.kt: example
+7. Add the following rules to your proguard-rules.pro file: example
+```
+-dontwarn com.stripe.android.pushProvisioning.PushProvisioningActivity$g
+-dontwarn com.stripe.android.pushProvisioning.PushProvisioningActivityStarter$Args
+-dontwarn com.stripe.android.pushProvisioning.PushProvisioningActivityStarter$Error
+-dontwarn com.stripe.android.pushProvisioning.PushProvisioningActivityStarter
+-dontwarn com.stripe.android.pushProvisioning.PushProvisioningEphemeralKeyProvider
+```
+ Rebuild the app, as the above changes don't update with hot reload
+
+
+For Stripe Integration you need Two keys
+1. Stripe's Publishable key
+2. Stripe's Secret Key
+
+Note: This Key's should be kept confidential for any data leak
+Here we have used .env for keeping Key's within project 
+Make sure to add .env file to .gitignore, for unnecessary data leak
+
+To use .env file's data in flutter app, you will need to follow below steps
+
+create a file .env in root directory of Flutter project
+
+store key's in .env file 
+```
+STRIPE_SECRET=sk_test_51Pxxxxxxx
+STRIPE_PUBKEY=pk_test_51Py9xxxxxxxx
+```
+
+Add .env file under assets in pubspec.yaml
+```
+assets:
+  - .env
+```
+Loads .env file in main.dart
+```
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+Future main() async {
+  await dotenv.load(fileName: ".env");
+}
+```
+using env data in flutter app
+```
+ headers: {
+          'Authorization': 'Bearer ${dotenv.env['STRIPE_SECRET']}',
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+```
+
+
