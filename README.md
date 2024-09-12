@@ -311,6 +311,15 @@ This plugin requires several changes to be able to work on Android devices. Plea
 2. Use Kotlin version 1.5.0 and above: example
 3. Requires Android Gradle plugin 8 and higher
 4. Using a descendant of Theme.AppCompat for your activity: example, example night theme
+
+```
+// go to file android/app/src/main/res/values/styles.xml
+// and add these lines 
+
+   <style name="NormalTheme" parent="Theme.MaterialComponents">
+        <item name="android:windowBackground">?android:colorBackground</item>
+    </style>
+```
 5. Using an up-to-date Android gradle build tools version: example and an up-to-date gradle version accordingly: example
 6. Using FlutterFragmentActivity instead of FlutterActivity in MainActivity.kt: example
 7. Add the following rules to your proguard-rules.pro file: example
