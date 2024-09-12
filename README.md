@@ -328,26 +328,28 @@ For Stripe Integration you need Two keys
 1. Stripe's Publishable key
 2. Stripe's Secret Key
 
-Note: This Key's should be kept confidential for any data leak
+**Don't have Stripe key's?** [get from here](https://dashboard.stripe.com/test/apikeys)
+**Note**: This Key's should be kept confidential for any data leak
+
 Here we have used .env for keeping Key's within project 
-Make sure to add .env file to .gitignore, for unnecessary data leak
+**Make sure** to add `.env` file to `.gitignore`, for unnecessary data leak
 
-To use .env file's data in flutter app, you will need to follow below steps
+To use `.env` file's data in flutter app, you will need to follow below steps
 
-create a file .env in root directory of Flutter project
+create a file `.env` in root directory of Flutter project
 
-store key's in .env file 
+store key's in `.env` file 
 ```
 STRIPE_SECRET=sk_test_51Pxxxxxxx
 STRIPE_PUBKEY=pk_test_51Py9xxxxxxxx
 ```
 
-Add .env file under assets in pubspec.yaml
+Add `.env` file under assets in pubspec.yaml
 ```
 assets:
   - .env
 ```
-Loads .env file in main.dart
+Loads `.env` file in main.dart
 ```
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
