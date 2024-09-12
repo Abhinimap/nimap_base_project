@@ -328,10 +328,10 @@ For Stripe Integration you need Two keys
 1. Stripe's Publishable key
 2. Stripe's Secret Key
 
-**Don't have Stripe key's?** [get from here](https://dashboard.stripe.com/test/apikeys)
-**Note**: This Key's should be kept confidential for any data leak
+**Don't have Stripe key's?** [get from here](https://dashboard.stripe.com/test/apikeys) .
+**Note**: This Key's should be kept confidential for any data leak.
 
-Here we have used .env for keeping Key's within project 
+Here we have used .env for keeping Key's within project. 
 **Make sure** to add `.env` file to `.gitignore`, for unnecessary data leak
 
 To use `.env` file's data in flutter app, you will need to follow below steps
