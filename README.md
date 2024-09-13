@@ -309,6 +309,21 @@ we will be using sandbox for creating order in Test Mode
 [create cashfree Order](https://sandbox.cashfree.com/pg/orders)
 
 ```agsl
+   // read appid and secret key from .env file
+    final String appId = dotenv.env['CASHFREE_APPID'] ?? '';
+    final String secretKey = dotenv.env['CASHFREE_SCRETKEY'] ?? '';
+
+```
+if you do not know about `.env` files,do not worry.
+
+we will be discussing about .env shortly.
+
+but before that here is headers and body structure for creating order on cashfree.
+
+we will make post request to   `https://sandbox.cashfree.com/pg/orders` with below headers and body
+
+
+```agsl
 
     final headers = {
       'Content-Type': 'application/json',
