@@ -6,6 +6,7 @@ import 'package:flutter_cashfree_pg_sdk/api/cfpaymentgateway/cfpaymentgatewayser
 import 'package:flutter_cashfree_pg_sdk/api/cfsession/cfsession.dart';
 import 'package:flutter_cashfree_pg_sdk/utils/cfenums.dart';
 import 'package:flutter_cashfree_pg_sdk/utils/cfexceptions.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:starter_template_get_x/data/data.dart';
 import 'package:starter_template_get_x/presentation/example_pages/stripe_payment.dart';
 import 'package:starter_template_get_x/presentation/presentation.dart';
@@ -64,9 +65,8 @@ class PaymentExamplesState extends State<PaymentExamples> {
     // const String secretKey =
     //     "cfsk_ma_test_65c1b4e827bb98b7b5d6c4418e8bc72a_0824f09b";
 
-    const String appId = "TEST10289959dce248afa08a071c403695998201";
-    const String secretKey =
-        "cfsk_ma_test_9890332490e2ccacb39a3d3fd5aad79a_583d0d11";
+    final String appId = dotenv.env['CASHFREE_APPID'] ?? '';
+    final String secretKey = dotenv.env['CASHFREE_SCRETKEY'] ?? '';
 
     final String orderamount = (299 + 29.00).toStringAsFixed(2).toString();
 
