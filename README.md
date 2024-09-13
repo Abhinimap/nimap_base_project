@@ -8,12 +8,12 @@ This project serves as a basic Flutter template utilizing GetX for state managem
 
 ## Table Of Contents
 - [Features](features)
-- [Getting Started](Getting Started)
+- [Getting Started](getting-started)
 - [Initial Setup Steps](Initial Setup Steps)
 - [SharedPreference Helper](SharedPreference Helper)
 - [Firebase Helper](Firebase Helper)
 - [Important Note](Important Note)
-- [API Integration](API Integration)
+- [API Integration](api-integration)
 - [Icon Management with flutter_icons](Icon Management with flutter_icons)
 - [JSON Serialization with json_serializable](JSON Serialization with json_serializable)
 - [Package and App Name Configuration](Package and App Name Configuration)
