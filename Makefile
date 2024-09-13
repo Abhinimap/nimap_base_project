@@ -59,6 +59,8 @@ runProd:
 # push code
 
 m ?= "UPDATE"
+# use make gitacp for adding all,commiting and pushing in one go
+# make gitacp m="commit message"
 
 gitacp:
 	git add . && git commit -m "$(m)" && git push
