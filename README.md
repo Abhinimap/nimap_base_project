@@ -276,18 +276,19 @@ Please follow following format:-
 
 ## Payment Gateway
 
-what are the main steps/Event happens in a Payment Gateway? 
-Mostly Every Payment Gateway uses this steps before redirecting user to payment page 
+What are the main steps/events that happen in a payment gateway?
+Every payment Gateway uses these steps before redirecting users to the payment page.
 
-1. initiate payment <!-- Collects user inputs, such as Amount, currency, name,email,Number etc.. -->
-2. create order  <!-- Collected data now sent to Payment Gateway server, which creats an Order and generates an unique Order ID -->
-3. create session for that Order  
-4. Give Session Web Url, where user will interact and make Payments
+1. Initiate payment. <!-- Collects user inputs, such as Amount, currency, name,email,Number etc.. -->
+2. Create Order.  <!-- Collected data now sent to Payment Gateway server, which creats an Order and generates an unique Order ID -->
+3. create a session for that Order
+4. Give Session Web URL, where the user will interact and make Payments.
 
-when user Clicks on PAY button, he/she won't able to see first 3 process and after waiting for few secs
-User directly redirected to the web session.
-If you want to send session link to user email, then hold on after creating session and send to your server for sending a mail with Payment session link.
+When a user clicks on the 'Pay' button, they will not see the first three processes and will need to wait for a few seconds.
+After this wait, the user is directly redirected to the web session.
 
+If you want to send a session link to the user's email,
+hold on after creating the session and send it to your server, which will then send an email with the payment session link.
 In this example we have integrated Two Payment Gateway for your reference
 
 We have added direct link to Official Docs, please checkout for detailed Explanation
@@ -313,8 +314,9 @@ This plugin requires several changes to be able to work on Android devices. Plea
 4. Using a descendant of Theme.AppCompat for your activity: example, example night theme
 
 ```
+// example
 // go to file android/app/src/main/res/values/styles.xml
-// and add these lines 
+// you can add these lines 
 
    <style name="NormalTheme" parent="Theme.MaterialComponents">
         <item name="android:windowBackground">?android:colorBackground</item>
@@ -338,9 +340,10 @@ For Stripe Integration you need Two keys
 2. Stripe's Secret Key
 
 **Don't have Stripe key's?** [get from here](https://dashboard.stripe.com/test/apikeys) .
+
 **Note**: This Key's should be kept confidential for any data leak.
 
-Here we have used .env for keeping Key's within project. 
+Here we have used .env for keeping Key's within project.
 **Make sure** to add `.env` file to `.gitignore`, for unnecessary data leak
 
 To use `.env` file's data in flutter app, you will need to follow below steps

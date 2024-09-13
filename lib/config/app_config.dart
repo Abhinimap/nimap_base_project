@@ -7,6 +7,7 @@ class AppConfig {
   String baseUrl = "";
   MaterialColor primaryColor = Colors.blue;
   Flavor flavor = Flavor.dev;
+  static bool isDevApp = false;
 
   static AppConfig shared = AppConfig.create();
 
@@ -16,6 +17,7 @@ class AppConfig {
     MaterialColor primaryColor = Colors.blue,
     Flavor flavor = Flavor.dev,
   }) {
+    isDevApp = flavor == Flavor.dev;
     return shared = AppConfig(appName, baseUrl, primaryColor, flavor);
   }
 
