@@ -31,12 +31,6 @@ class $AssetsGoogleFontsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
-  /// Directory path: assets/images/2.0x
-  $AssetsImages20xGen get a2 => const $AssetsImages20xGen();
-
-  /// Directory path: assets/images/3.0x
-  $AssetsImages30xGen get a3 => const $AssetsImages30xGen();
-
   /// Directory path: assets/images/icons
   $AssetsImagesIconsGen get icons => const $AssetsImagesIconsGen();
 
@@ -76,28 +70,6 @@ class $AssetsSvgGen {
   List<SvgGenImage> get values => [fileIcon];
 }
 
-class $AssetsImages20xGen {
-  const $AssetsImages20xGen();
-
-  /// File path: assets/images/2.0x/flutter_logo.png
-  AssetGenImage get flutterLogo =>
-      const AssetGenImage('assets/images/2.0x/flutter_logo.png');
-
-  /// List of all assets
-  List<AssetGenImage> get values => [flutterLogo];
-}
-
-class $AssetsImages30xGen {
-  const $AssetsImages30xGen();
-
-  /// File path: assets/images/3.0x/flutter_logo.png
-  AssetGenImage get flutterLogo =>
-      const AssetGenImage('assets/images/3.0x/flutter_logo.png');
-
-  /// List of all assets
-  List<AssetGenImage> get values => [flutterLogo];
-}
-
 class $AssetsImagesIconsGen {
   const $AssetsImagesIconsGen();
 
@@ -116,10 +88,14 @@ class $AssetsImagesIconsGen {
 class Assets {
   Assets._();
 
+  static const String aEnv = '.env';
   static const $AssetsGoogleFontsGen googleFonts = $AssetsGoogleFontsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsLogoGen logo = $AssetsLogoGen();
   static const $AssetsSvgGen svg = $AssetsSvgGen();
+
+  /// List of all assets
+  static List<String> get values => [aEnv];
 }
 
 class AssetGenImage {

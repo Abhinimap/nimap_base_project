@@ -38,8 +38,10 @@ lines:
 	find . -name '*.dart' | xargs wc -l
 
 ## flavors
-#runDev:
-#	#flutter run --flavor dev -t lib/main.dart
+runDev:
+	flutter run --flavor dev -t lib/main_dev.dart
+runProd:
+	flutter run --flavor dev -t lib/main.dart
 #
 #runDevQa:
 #	#flutter run --flavor dev -t lib/main_qa.dart
@@ -53,4 +55,11 @@ lines:
 #prodRelease:
 #	#flutter run --flavor prod --release -t lib/main_release.dart
 
+
+# push code
+
+m ?= "UPDATE"
+
+gitacp:
+	git add . && git commit -m "$(m)" && git push
 
