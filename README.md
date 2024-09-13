@@ -374,7 +374,23 @@ Add `.env` file under assets in pubspec.yaml
 assets:
   - .env
 ```
+use [flutter_dotenv](https://pub.dev/packages/flutter_dotenv) flutter package to read .env file data
+
+install flutter_dotenv package with command
+```agsl
+flutter pub add flutter_dotenv
+```
+
+Or directly add in pubspec.yaml under dependencies
+
+```agsl
+dependencies:
+  flutter_dotenv: ^5.1.0
+```
+and run flutter pub get after that
+
 Loads `.env` file in main.dart
+
 ```
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
