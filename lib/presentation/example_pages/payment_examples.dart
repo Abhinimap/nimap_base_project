@@ -61,9 +61,6 @@ class PaymentExamplesState extends State<PaymentExamples> {
 
   initiatePayment() async {
     // TODO: Following are the test credentials please use your test credentials
-    // const String appId = "TEST10305710b52a49a6d8b83818378201750301";
-    // const String secretKey =
-    //     "cfsk_ma_test_65c1b4e827bb98b7b5d6c4418e8bc72a_0824f09b";
 
     final String appId = dotenv.env['CASHFREE_APPID'] ?? '';
     final String secretKey = dotenv.env['CASHFREE_SCRETKEY'] ?? '';
