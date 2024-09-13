@@ -476,27 +476,38 @@ android {
         }
         prod {
             dimension "app"
-            resValue "string", "app_name", "Prod App"
+            resValue "string", "app_name", "Prod App"   // the name will be displayed as app name on devices below the app icon
             buildConfigField "String", "TARGET_FILE", "\"lib/main.dart\""
         }
     }
 }
 ```
 
+Go to android -> app -> src -> main -> Androidmanifest.xml
+
+```agsl
+ <application
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name">  // replace this line to use app name according to flavors
+```
+
 
 If you are using flavors, you may want to change App Icons 
 then you can do like this
+
 here i am using `flutter_launcher_icons` package for generating app icons
 
 for more detail about package
 read docs of [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons)
 
 ```agsl
+// add below code in pubspec.yaml
 
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "assets/logo/app_icon.png"
+  image_path: "assets/logo/app_icon.png"  // default app icon
   flavors:
     dev:
       image_path: "assets/app_icons/dev_image.jpg"
@@ -511,9 +522,12 @@ flutter_launcher_icons:
 ```
 To use different firebase for different flavors
 you have to create folder's according to it
+
 go to android -> app -> src 
+
 and create dev and prod folder
-and add those files into respective flavor folders
+
+Add google-services.json files into respective flavor folders
 
 
 create .yaml files in root directory of the app, to generate icons according to flavors
@@ -543,7 +557,7 @@ flutter_launcher_icons:
 
 ```agsl
 // To generate icons 
-// this command will search for all .yaml file whose name start with flutter_launcher_icons
+// this command will search for all .yaml file whose name starts with flutter_launcher_icons
 
 flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons*
 ```
