@@ -351,7 +351,19 @@ To use `.env` file's data in flutter app, you will need to follow below steps
 
 create a file `.env` in root directory of Flutter project
 
+``` css
+.
+├── android
+├── assets
+├── ios
+├── lib
+├── web
+├── .env
+└── pubspec.yaml
+```
+
 store key's in `.env` file 
+
 ```
 STRIPE_SECRET=sk_test_51Pxxxxxxx
 STRIPE_PUBKEY=pk_test_51Py9xxxxxxxx
