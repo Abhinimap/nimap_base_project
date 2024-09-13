@@ -279,8 +279,8 @@ Please follow following format:-
 What are the main steps/events that happen in a payment gateway?
 Every payment Gateway uses these steps before redirecting users to the payment page.
 
-1. Initiate payment. <!-- Collects user inputs, such as Amount, currency, name,email,Number etc.. -->
-2. Create Order.  <!-- Collected data now sent to Payment Gateway server, which creats an Order and generates an unique Order ID -->
+1. Initiate payment. // Collects user inputs, such as Amount, currency, name,email,Number etc...
+2. Create Order.  // Collected data now sent to Payment Gateway server, which creats an Order and generates an unique Order ID 
 3. create a session for that Order
 4. Give Session Web URL, where the user will interact and make Payments.
 
@@ -291,18 +291,52 @@ If you want to send a session link to the user's email,
 hold on after creating the session and send it to your server, which will then send an email with the payment session link.
 In this example we have integrated Two Payment Gateway for your reference
 
-We have added direct link to Official Docs, please checkout for detailed Explanation
+We have added direct link to Official Docs, please checkout them for more detailed Explanations.
 1. [CashFree](https://docs.cashfree.com/docs/flutter-integration)
 2. [Stripe](https://pub.dev/packages/flutter_stripe)
 
 firstly, Lets start with CashFree integration in Flutter
 ### Cashfree
+
 Requirements :-
-cashfree package 
+checkout [cashfree flutter sdk](https://pub.dev/packages/flutter_cashfree_pg_sdk) for latest version and how to use it.
+```agsl
+dependencies:
     flutter_cashfree_pg_sdk: ^2.1.3+33
+```
 
 we will be using sandbox for creating order in Test Mode
 [create cashfree Order](https://sandbox.cashfree.com/pg/orders)
+
+```agsl
+
+    final headers = {
+      'Content-Type': 'application/json',
+      'x-client-id': appId,
+      'x-client-secret': secretKey,
+      'x-api-version': '2025-01-01',
+    };
+
+    final data = {
+      'order_id': 'enter your unique id or UUID',
+      'order_amount': orderamount,
+      'order_currency': 'INR',
+      'customer_details': {
+        'customer_id': 'CUST001',
+        'customer_email': "abcd@gmail.com",
+        'customer_phone': "9000012345",
+      },
+      'order_note': 'Test Order',
+      'order_meta': {
+        'return_url':
+            'https://example.com/return', // Replace with your return URL
+      },
+    };
+```
+
+if you want to get status of recently created orders then visit [fetch order](https://docs.cashfree.com/reference/pgfetchorder)
+
+To know more about Cashfree integration in flutter, or Latest doc kindly visit to [official cashfree site](https://docs.cashfree.com/docs/flutter-integration)
 
 ### Stripe
 Android
@@ -322,9 +356,11 @@ This plugin requires several changes to be able to work on Android devices. Plea
         <item name="android:windowBackground">?android:colorBackground</item>
     </style>
 ```
+
 5. Using an up-to-date Android gradle build tools version: example and an up-to-date gradle version accordingly: example
 6. Using FlutterFragmentActivity instead of FlutterActivity in MainActivity.kt: example
 7. Add the following rules to your proguard-rules.pro file: example
+
 ```
 -dontwarn com.stripe.android.pushProvisioning.PushProvisioningActivity$g
 -dontwarn com.stripe.android.pushProvisioning.PushProvisioningActivityStarter$Args
@@ -336,6 +372,7 @@ This plugin requires several changes to be able to work on Android devices. Plea
 
 
 For Stripe Integration you need Two keys
+
 1. Stripe's Publishable key
 2. Stripe's Secret Key
 
@@ -352,7 +389,7 @@ To use `.env` file's data in flutter app, you will need to follow below steps
 create a file `.env` in root directory of Flutter project
 
 ``` css
-.
+
 ├── android
 ├── assets
 ├── ios
@@ -376,7 +413,7 @@ assets:
 ```
 use [flutter_dotenv](https://pub.dev/packages/flutter_dotenv) flutter package to read .env file data
 
-install flutter_dotenv package with command
+install __flutter_dotenv__ package with command
 ```agsl
 flutter pub add flutter_dotenv
 ```
