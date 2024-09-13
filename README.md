@@ -343,7 +343,8 @@ For Stripe Integration you need Two keys
 
 **Note**: This Key's should be kept confidential for any data leak.
 
-Here we have used .env for keeping Key's within project.
+**Here we have used `.env` for keeping Key's within project.**
+
 **Make sure** to add `.env` file to `.gitignore`, for unnecessary data leak
 
 To use `.env` file's data in flutter app, you will need to follow below steps
