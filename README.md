@@ -4,6 +4,32 @@
 
 This project serves as a basic Flutter template utilizing GetX for state management.
 
+
+
+## Table Of Contents
+- [Features](features)
+- [Getting Started](Getting Started)
+- [Initial Setup Steps](Initial Setup Steps)
+- [SharedPreference Helper](SharedPreference Helper)
+- [Firebase Helper](Firebase Helper)
+- [Important Note](Important Note)
+- [API Integration](API Integration)
+- [Icon Management with flutter_icons](Icon Management with flutter_icons)
+- [JSON Serialization with json_serializable](JSON Serialization with json_serializable)
+- [Package and App Name Configuration](Package and App Name Configuration)
+- [Theme Configuration](Theme Configuration)
+- [Localization](Localization Configuration)
+- [Custom Snack Bars](Custom Snack Bars)
+- [Deep Linking Setup](Deep Linking Setup)
+- [Keystore Credentials](Keystore Credentials)
+- [Technical Requirements](Technical Requirements)
+- [Development Requirements](Development Requirements)
+- [Gitlab](Gitlab)
+- [Project Structure](Project Structure)
+- [Library Used](Library Used)
+- [Payment Gateway](Payment Gateway)
+
+
 ## Features
 
 This starter template includes the following features:
@@ -308,6 +334,12 @@ dependencies:
 we will be using sandbox for creating order in Test Mode
 [create cashfree Order](https://sandbox.cashfree.com/pg/orders)
 
+For Production mode
+```agsl
+https://api.cashfree.com/pg/orders
+```
+
+
 ```agsl
    // read appid and secret key from .env file
     final String appId = dotenv.env['CASHFREE_APPID'] ?? '';
@@ -417,8 +449,10 @@ create a file `.env` in root directory of Flutter project
 store key's in `.env` file 
 
 ```
-STRIPE_SECRET=sk_test_51Pxxxxxxx
-STRIPE_PUBKEY=pk_test_51Py9xxxxxxxx
+STRIPE_SECRET = sk_test_51Py9PuP94TLFIL8Q5xobGAO2KjjKXwxxxxxxxxxxxxxxxxxxx
+STRIPE_PUBKEY = pk_test_51Pxxxxxxxxxxxxxxx
+CASHFREE_APPID = TEST10289959xxxxxxxxxxxxx
+CASHFREE_SCRETKEY = cfsk_ma_test_9890xxxxxxxxxxxxxxx
 ```
 
 Add `.env` file under assets in pubspec.yaml
