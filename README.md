@@ -444,3 +444,122 @@ using env data in flutter app
 ```
 
 
+### Flavors 
+
+To setup flavors in IOS/MACOS follow this [instructions](https://docs.flutter.dev/deployment/flavors)
+
+For **Android**
+
+go to android-> app -> build.gradle
+```agsl
+android {
+    // ...
+        buildTypes {
+        release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig signingConfigs.debug
+        }
+    }
+    
+    // add these line to create flavors for dev and Prod
+    // Or edit them as per your choice
+    flavorDimensions "app"
+    productFlavors {
+        // ... other flavors
+        dev {
+            dimension "app"
+            applicationIdSuffix ".dev"
+            versionNameSuffix "-dev"
+            resValue "string", "app_name", "Dev App"
+            buildConfigField "String", "TARGET_FILE", "\"lib/main_dev.dart\""
+        }
+        prod {
+            dimension "app"
+            resValue "string", "app_name", "Prod App"
+            buildConfigField "String", "TARGET_FILE", "\"lib/main.dart\""
+        }
+    }
+}
+```
+
+
+If you are using flavors, you may want to change App Icons 
+then you can do like this
+here i am using `flutter_launcher_icons` package for generating app icons
+
+for more detail about package
+read docs of [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons)
+
+```agsl
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/logo/app_icon.png"
+  flavors:
+    dev:
+      image_path: "assets/app_icons/dev_image.jpg"
+      android: "app_dev"
+      ios: "RunnerDev"
+    prod:
+      image_path: "assets/app_icons/prod_image.jpg"
+      android: "app_staging"
+      ios: "RunnerProd"
+
+
+```
+To use different firebase for different flavors
+you have to create folder's according to it
+go to android -> app -> src 
+and create dev and prod folder
+and add those files into respective flavor folders
+
+
+create .yaml files in root directory of the app, to generate icons according to flavors
+```agsl
+// give name to file like this
+flutter_launcher_icons-dev.yaml
+flutter_launcher_icons-prod.yaml
+```
+
+and inside those file add 
+
+```agsl
+
+// in flutter_launcher_icons-dev.yaml
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/app_icons/dev_image.jpg"
+  
+// in flutter_launcher_icons-prod.yaml
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/app_icons/prod_image.jpg"  // path to icon image file
+```
+
+```agsl
+// To generate icons 
+// this command will search for all .yaml file whose name start with flutter_launcher_icons
+
+flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons*
+```
+
+
+now rebuild your app
+and use command line to build according to flavor
+
+For dev
+```agsl
+flutter run --flavor dev -t lib/main_dev.dart
+```
+
+For Production
+```agsl
+flutter run --flavor prod -t lib/main.dart
+```
+
+
