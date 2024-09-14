@@ -4,7 +4,7 @@
 
 This project serves as a basic Flutter template utilizing GetX for state management.
 
-
+{{< toc >}}
 
 ## Table Of Contents
 - [Features](features)
