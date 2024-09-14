@@ -27,6 +27,7 @@ This project serves as a basic Flutter template utilizing GetX for state managem
 - [Project Structure](#project-structure)
 - [Library Used](#library-used)
 - [Payment Gateway](#payment-gateway)
+- [Flavors](#flavors)
 
 
 ## Features
