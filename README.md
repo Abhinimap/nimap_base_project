@@ -7,8 +7,8 @@ This project serves as a basic Flutter template utilizing GetX for state managem
 {{< toc >}}
 
 ## Table Of Contents
-- [Features](features)
-- [Getting Started](getting-started)
+- [Features](#features)
+- [Getting Started](#getting-started)
 - [Initial Setup Steps](Initial Setup Steps)
 - [SharedPreference Helper](SharedPreference Helper)
 - [Firebase Helper](Firebase Helper)
