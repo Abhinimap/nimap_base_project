@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'package:starter_template_get_x/config/config.dart';
 import 'package:starter_template_get_x/data/data.dart';
 import 'package:starter_template_get_x/presentation/custom_widgets/custom_text_widgets.dart';
+
+import '../setting.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
@@ -98,6 +99,10 @@ class CustomDrawer extends StatelessWidget {
           ),
           const Spacer(),
           DrawerListTile(
+            callback: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => SettingsPage()));
+            },
             drawerItem: DrawerItem(
               name: "Settings",
               identifier: DrawerElements.settings,
@@ -135,12 +140,10 @@ class CustomDrawer extends StatelessWidget {
 }
 
 class DrawerListTile extends StatelessWidget {
-  const DrawerListTile({
-    super.key,
-    required this.drawerItem,
-  });
+  const DrawerListTile({super.key, required this.drawerItem, this.callback});
 
   final DrawerItem drawerItem;
+  final VoidCallback? callback;
 
   @override
   Widget build(BuildContext context) {
@@ -159,10 +162,7 @@ class DrawerListTile extends StatelessWidget {
               fontWeight: FontWeight.w600,
               fontSize: 18,
             ),
-      onTap: () {
-        print("On tap");
-        // TODO: Implement Redirection logic
-      },
+      onTap: callback,
     );
   }
 }

@@ -1,3 +1,7 @@
+// 16/09/24  This file specifically made for implementing example of Flavors in flutter app
+// make changes for dev flavor as per your need
+// for example calling an addition api in before main
+
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';

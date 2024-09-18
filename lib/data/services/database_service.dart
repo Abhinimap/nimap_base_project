@@ -15,11 +15,14 @@ class DatabaseService {
 
   static String _databasePath = '';
 
+  // Enter Script for creating tables
   final List<String> _onCreateScript = [
     'CREATE TABLE breeds(id INTEGER PRIMARY KEY, name TEXT, description TEXT)',
     'CREATE TABLE dogs(id INTEGER PRIMARY KEY, name TEXT, age INTEGER, color INTEGER, breedId INTEGER, FOREIGN KEY (breedId) REFERENCES breeds(id) ON DELETE SET NULL)',
   ];
 
+  /// use this to migrate database
+  /// add string query
   final List<String> _migrationScripts = [];
 
   Future<Database> get database async {

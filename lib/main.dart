@@ -36,8 +36,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      // Add translation class instance to use .tr
+      translations: LocalizationService.getInstance(),
       title: AppConfig.shared.appName,
       debugShowCheckedModeBanner: false,
+
       routingCallback: (value) {
         // NOTE: Used when we implement deep linking
         if (value!.current.contains("#")) {

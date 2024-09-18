@@ -1,7 +1,6 @@
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 
 import '../../data/data.dart';
 import '../config.dart';
@@ -50,6 +49,7 @@ class LocalizationService extends Translations {
     // update current language in shared pref
     await MySharedPref.setCurrentLanguage(languageCode);
     if (!Get.testMode) {
+      print('suported lang  :${supportedLanguages[languageCode]}');
       Get.updateLocale(supportedLanguages[languageCode]!);
     }
   }

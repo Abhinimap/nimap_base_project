@@ -11,6 +11,7 @@ This project serves as a basic Flutter template utilizing GetX for state managem
 - [Getting Started](#getting-started)
 - [Initial Setup Steps](#initial-setup-steps)
 - [SharedPreference Helper](#sharedPreference-helper)
+- [Database](#database)
 - [Firebase Helper](#firebase-helper)
 - [API Integration](#api-integration)
 - [Icon Management with flutter_icons](#icon-management-with-flutter_icons)
@@ -100,6 +101,65 @@ After completing these steps, you should be all set to run the project.
 You can find these file in following directory : /lib/data/utils/my_shared_pref.dart
 You can update this file as per your needs
 
+## Database 
+
+
+get Database instance
+```dart
+final db = await DatabaseService().database;
+```
+
+
+
+Enter Scripts to Create tables in Database
+```dart
+
+  // Enter Script for creating tables
+  final List<String> _onCreateScript = [];
+
+// for example
+  final List<String> _onCreateScript = [
+    'CREATE TABLE breeds(id INTEGER PRIMARY KEY, name TEXT, description TEXT)',
+    'CREATE TABLE dogs(id INTEGER PRIMARY KEY, name TEXT, age INTEGER, color INTEGER, breedId INTEGER, FOREIGN KEY (breedId) REFERENCES breeds(id) ON DELETE SET NULL)',
+  ];
+```
+
+**Note:** Kindly do not change scripts inside of _oncreateScripts after once database is created.
+
+if you want to edit tables or Alter them use `migration scripts`
+
+
+```dart
+/// use this to migrate database
+/// add string query
+final List<String> _migrationScripts = [];
+```
+
+execute query in database
+```dart
+  onPressed: () async {
+            final db = await DatabaseService().database;
+            final a = await db
+                .delete('breeds', where: 'name=?', whereArgs: ['Labrador']);
+            final b = await db.delete(
+              'breeds',
+              where: 'name =?',
+              whereArgs: ['Beagle'],
+            );
+            final c = await db.delete(
+              'breeds',
+              where: 'name=?',
+              whereArgs: ['German Shepherd'],
+            );
+
+            if (a != 0 && b != 0 && c != 0) {
+              CustomSnackBar.showCustomSnackBar(
+                  title: 'Data Deleted Successfully',
+                  message: 'Please Refresh page..');
+            }
+          }
+```
+
 ## Firebase Helper
 You can find these file in following directory : /lib/data/utils/firebase_helper.dart
 To use this firebase helper you need to configure firebase into you flutter project.
@@ -185,6 +245,19 @@ Please refer `json_serializable` [package](https://pub.dev/packages/json_seriali
    ```
 
 ## Localization Configuration
+
+Add Translations class's instance in main.dart
+```dart
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      // Add translation class instance to use .tr
+      translations: LocalizationService.getInstance(),
+      title: AppConfig.shared.appName,
+      debugShowCheckedModeBanner: false,
+    );
+  }
+```
 
 - Change app locale
    ```dart
