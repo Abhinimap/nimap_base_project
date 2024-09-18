@@ -27,12 +27,24 @@ class _SettingsPageState extends State<SettingsPage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const SizedBox(
+            height: 20,
+          ),
+          const Text(
+            'Example of Localization', style: TextStyle(fontSize: 24),
+            // style: MyFonts.displayTextStyle,
+          ),
           Text(
             'This will translate : ${Strings.goodMorning.tr}',
             // style: MyFonts.displayTextStyle,
           ),
           const SizedBox(
             height: 20,
+          ),
+          Text('This will not Translate'),
+          Text(
+            'List of Breeds from Database', style: TextStyle(fontSize: 20),
+            // style: MyFonts.displayTextStyle,
           ),
           const DataBaseDataList(),
           const SizedBox(
