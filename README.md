@@ -139,24 +139,30 @@ execute query in database
 ```dart
   onPressed: () async {
             final db = await DatabaseService().database;
+            
+            // delete data
             final a = await db
                 .delete('breeds', where: 'name=?', whereArgs: ['Labrador']);
-            final b = await db.delete(
-              'breeds',
-              where: 'name =?',
-              whereArgs: ['Beagle'],
-            );
-            final c = await db.delete(
-              'breeds',
-              where: 'name=?',
-              whereArgs: ['German Shepherd'],
-            );
+            
+            // insert data
+            final b = await db.insert('breeds',
+                {'name': 'Beagle', 'description': 'Curious, merry, and friendly'});
 
-            if (a != 0 && b != 0 && c != 0) {
-              CustomSnackBar.showCustomSnackBar(
-                  title: 'Data Deleted Successfully',
-                  message: 'Please Refresh page..');
+            if (a != 0 && b != 0 ) {
+            CustomSnackBar.showCustomSnackBar(
+            title: 'Data Altered Successfully',
+            message: 'Please Refresh page..');
             }
+            
+            // Query into data base
+
+            Future<List<Map<String, Object?>>> _database() async {
+            final Database db = await DatabaseService().database;
+            return await db.rawQuery('SELECT * FROM breeds');
+            }
+            
+            
+        
           }
 ```
 
