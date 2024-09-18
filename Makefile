@@ -61,5 +61,4 @@ runProd:
 m ?= "UPDATE"
 
 gitacp:
-	git add . && git commit -m "$(m)"  && git push origin-github main && git push origin abhi_test
-
+	git add . && git commit -m "$(m)"  && git push origin-github abhi_test && git push origin abhi_test
